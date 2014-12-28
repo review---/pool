@@ -31,7 +31,7 @@ RUN /opt/ruby-2.1.2/bin/bundle install --path=vendor/bundle
 # Test builder
 RUN /opt/ruby-2.1.2/bin/bundle exec rake spec
 RUN /usr/local/bin/gem build builder.gemspec
-RUN /usr/local/bin/gem install builder-0.0.1.gem
+RUN /usr/local/bin/gem install builder-0.0.1.gem -s https://s3.amazonaws.com/production.s3.rubygems.org 
 
 # Add mod_mruby handler to manage request
 ADD handlers /app/handlers
